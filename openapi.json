@@ -1,0 +1,154 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Speakeasy Bar API",
+    "description": "This is a sample API for Speakeasy Bar.",
+    "termsOfService": "http://example.com/terms/",
+    "contact": {
+      "name": "Speakeasy Bar Support",
+      "url": "http://www.example.com/support",
+      "email": "support@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.1"
+  },
+  "components": {
+    "schemas": {
+      "Drink": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Drink name",
+            "description": "The name of the drink",
+            "example": "Gin and Tonic"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "beer",
+              "wine",
+              "cocktail",
+              "mocktail",
+              "soft",
+              "spirit",
+              "other"
+            ]
+          },
+          "price": {
+            "type": "number",
+            "title": "Price",
+            "description": "The price of one unit of the drink in US cents.",
+            "example": 100
+          },
+          "stock": {
+            "type": "integer",
+            "title": "Stock",
+            "description": "The number of units of the drink in stock, only available when authenticated.",
+            "example": 10
+          },
+          "productCode": {
+            "type": "string",
+            "title": "Product code",
+            "description": "The product code of the drink, only available when authenticated.",
+            "example": "1234567890"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "price"
+        ]
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getRoot",
+        "tags": [
+          "root"
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "root": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/drink/{drinkId}/": {
+      "get": {
+        "operationId": "getDrink",
+        "tags": [
+          "drinks"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "drinkId",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Drink"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost",
+      "description": "Development server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "drinks",
+      "description": "Drink related end-points",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "x-speakeasy-retries": {
+    "strategy": "backoff",
+    "backoff": {
+      "initialInterval": 500,
+      "maxInterval": 60000,
+      "maxElapsedTime": 3600000,
+      "exponent": 1.5
+    },
+    "statusCodes": [
+      "5XX"
+    ],
+    "retryConnectionErrors": true
+  }
+}

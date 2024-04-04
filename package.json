@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "speakeasy-fastify-example",
+  "description": "A Fastify example for Speakeasy",
+  "version": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "start": "fastify start -l info app.js",
+    "dev": "fastify start -w -l info -P app.js",
+    "lint": "standard --fix",
+    "openapi": "fastify generate-swagger app.js > openapi.json",
+    "sdk": "speakeasy generate sdk --schema openapi.json --lang typescript --out ./sdk"
+  },
+  "keywords": [],
+  "author": "Speakeasy",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/sensible": "^5.0.0",
+    "@fastify/swagger": "^8.10.1",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^5.8.0",
+    "fastify-plugin": "^4.0.0"
+  },
+  "devDependencies": {
+    "standard": "^17.0.0"
+  }
+}
