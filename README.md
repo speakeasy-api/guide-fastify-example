@@ -1,11 +1,17 @@
 <div align="center">
-
-<a href="[Speakeasy](https://speakeasyapi.dev/)">
-  <img src="https://github.com/speakeasy-api/speakeasy/assets/68016351/e959f81a-b250-4003-8c5c-a45b9463fc95" alt="Speakeasy Logo" width="400">
-<h2>Speakeasy Fastapi OpenAPI Example</h2>
-</a>
+ <a href="https://www.speakeasy.com/" target="_blank">
+  <img width="1500" height="500" alt="Speakeasy" src="https://github.com/user-attachments/assets/0e56055b-02a3-4476-9130-4be299e5a39c" />
+ </a>
+ <br />
+ <br />
+  <div>
+   <a href="https://speakeasy.com/docs/create-client-sdks/" target="_blank"><b>Docs Quickstart</b></a>&nbsp;&nbsp;//&nbsp;&nbsp;<a href="https://go.speakeasy.com/slack" target="_blank"><b>Join us on Slack</b></a>
+  </div>
+ <br />
 
 </div>
+
+<hr />
 
 This example Fastapi app demonstrates Speakeasy-recommended practices for generating clear OpenAPI specifications and SDKs.
 
