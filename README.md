@@ -11,7 +11,7 @@
 
 </div>
 
-<hr />
+<h2>Speakeasy Fastapi OpenAPI Example</h2>
 
 This example Fastapi app demonstrates Speakeasy-recommended practices for generating clear OpenAPI specifications and SDKs.
 
