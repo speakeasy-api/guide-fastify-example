@@ -22,9 +22,9 @@ export default async function (fastify, opts) {
     }
   }
 
-  fastify.get('/:drinkId/', { schema }
+  fastify.get('/:drinkId', { schema }
     , async function (request, reply) {
       const { drinkId } = request.params
-      return { id: drinkId, name: 'Example Drink Name', description: 'Example description' }
+      return { name: 'Example Drink Name', type: 'beer', price: 6, description: 'Example description', }
     })
 }
